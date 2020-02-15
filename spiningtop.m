@@ -1,7 +1,7 @@
 % step size
 h=0.1;  
 
-t_final=15;
+t_final=10;
 x = 0:h:t_final;
 
 m =0.5;
@@ -14,7 +14,7 @@ I=[(3/5)*m*(r^2/4+d^2), 0, 0;0, (3/5)*m*(r^2/4+d^2), 0;0, 0, (3/10)*m*r^2];
 y = zeros(length(x),3);                            
 
 % initial condition          
-w = [4,2,6];
+w = [1,2,2.5];
 y(1,:) = w;
 r = [1,0,0;0,1,0;0,0,1];
 wcross=[0,-w(1,3),w(1,2);w(1,3),0,-w(1,1);-w(1,2),w(1,1),0];
@@ -28,8 +28,17 @@ Lin(1,:)=transpose(inv(R)*(I*transpose(w)));
 % plot(x,y(:,1),'g',x,y(:,2),'b',x,y(:,3),'r')
 % xlabel('time')
 % ylabel('W_x,W_y,W_z')
-% legend({'x,y(:,1)','x,y(:,2)','x,y(:,3)'},'Location','southwest')
 % legend({'W_x','W_y','W_z'},'Location','southwest')
+
+% plot(x,Q(1,:),'g',x,Q(2,:),'b',x,Q(3,:),'r',x,Q(4,:),'y')
+% xlabel('time')
+% ylabel('Q1,Q2,Q3,Q4')
+% legend({'Q1','Q2','Q3','Q4'},'Location','southwest')
+
+%plot(x,Q(4,:),'y')
+% xlabel('time')
+% ylabel('Q4')
+% legend({'Q4'},'Location','southwest')
 
 for i=1:(length(x)-1) 
     
